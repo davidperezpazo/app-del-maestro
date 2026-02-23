@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colores institucionales Madre Sacramento */
+  --color-sacramento-900: #0a1628;
+  --color-sacramento-800: #0f2240;
+  --color-sacramento-700: #162d52;
+  --color-sacramento-600: #1e3a68;
+  --color-sacramento-500: #27478e;
+  --color-sacramento-400: #3b6cc4;
+  --color-sacramento-300: #6b9ae0;
+  --color-sacramento-200: #a3c4f0;
+  --color-sacramento-100: #d6e4f8;
+  --color-sacramento-50: #eef4fc;
+
+  --color-gold-600: #b8941f;
+  --color-gold-500: #d4af37;
+  --color-gold-400: #e0c55e;
+  --color-gold-300: #ebd88a;
+  --color-gold-200: #f3e8b5;
+  --color-gold-100: #faf4dd;
+
+  --color-success: #22c55e;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+}
+
+/* Custom base styles */
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, var(--color-sacramento-50) 0%, #ffffff 50%, var(--color-gold-100) 100%);
+  min-height: 100vh;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-sacramento-50);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sacramento-300);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-sacramento-400);
+}
+
+/* Glassmorphism utility */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(10, 22, 40, 0.08);
+}
+
+/* Upload zone styling */
+.upload-zone {
+  border: 2px dashed var(--color-sacramento-300);
+  transition: all 0.3s ease;
+}
+.upload-zone:hover,
+.upload-zone.drag-over {
+  border-color: var(--color-gold-500);
+  background: var(--color-gold-100);
+}
+
+/* Shimmer animation for loading */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-sacramento-100) 25%,
+    var(--color-gold-100) 50%,
+    var(--color-sacramento-100) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Pulse animation for processing */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+  50% { box-shadow: 0 0 20px 8px rgba(212, 175, 55, 0.2); }
+}
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
