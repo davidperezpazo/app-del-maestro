@@ -4,7 +4,7 @@ const SYSTEM_PROMPT = `Eres un experto en planificación educativa de la Comunid
 
 Tu tarea es generar una planificación completa para una Situación de Aprendizaje (SA) a partir de:
 1. El contenido del libro de texto del maestro
-2. La justificación curricular oficial del Ministerio de Educación
+2. La justificación curricular proporcionada por la editorial
 
 DEBES devolver un JSON con la siguiente estructura exacta:
 
@@ -85,7 +85,7 @@ function buildUserPrompt(
     if (ctx?.grupo) prompt += `\nGrupo: ${ctx.grupo}`;
 
     prompt += `\n\n=== CONTENIDO DEL LIBRO DE TEXTO ===\n${bookText.substring(0, 200000)}`;
-    prompt += `\n\n=== JUSTIFICACIÓN CURRICULAR DEL MINISTERIO ===\n${justificationText.substring(0, 200000)}`;
+    prompt += `\n\n=== JUSTIFICACIÓN CURRICULAR DE LA EDITORIAL ===\n${justificationText.substring(0, 200000)}`;
     prompt += `\n\nResponde SOLO con el JSON. Sin markdown, sin explicaciones, solo el JSON puro.`;
 
     return prompt;

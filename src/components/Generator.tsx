@@ -153,7 +153,7 @@ export function Generator() {
                     />
                     <DocumentUploader
                         label="Justificación curricular"
-                        description="Documento del Ministerio de Educación"
+                        description="Documento de la editorial"
                         file={justFile}
                         onFileChange={setJustFile}
                         icon="🏛️"
