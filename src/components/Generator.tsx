@@ -1,16 +1,16 @@
 import { useState } from 'react';
-import { PdfUploader } from './PdfUploader';
+import { DocumentUploader } from './DocumentUploader';
 import { ProgressBar } from './ProgressBar';
 import { DownloadButton } from './DownloadButton';
 import { loadSettings } from '../stores/settings-store';
-import { extractTextWithLimit } from '../services/pdf-service';
+import { extractTextWithLimit } from '../services/document-service';
 import { generatePlanning } from '../services/ai-service';
 import { generateExcel } from '../services/excel-service';
 import type { ProcessingState, GenerationResult } from '../types/planning';
 
 export function Generator() {
-    const [bookPdf, setBookPdf] = useState<File | null>(null);
-    const [justPdf, setJustPdf] = useState<File | null>(null);
+    const [bookFile, setBookFile] = useState<File | null>(null);
+    const [justFile, setJustFile] = useState<File | null>(null);
     const [units, setUnits] = useState('');
     const [nivel, setNivel] = useState('');
     const [asignatura, setAsignatura] = useState('');
@@ -24,10 +24,10 @@ export function Generator() {
 
     const settings = loadSettings();
     const canGenerate =
-        bookPdf && justPdf && units.trim() && settings.apiKey && settings.isVerified;
+        bookFile && justFile && units.trim() && settings.apiKey && settings.isVerified;
 
     async function handleGenerate() {
-        if (!bookPdf || !justPdf || !units.trim()) return;
+        if (!bookFile || !justFile || !units.trim()) return;
 
         const currentSettings = loadSettings();
         if (!currentSettings.apiKey || !currentSettings.isVerified) {
@@ -51,7 +51,7 @@ export function Generator() {
                 message: 'Extrayendo texto del libro de texto...',
             });
 
-            const bookText = await extractTextWithLimit(bookPdf, 300000, (p) => {
+            const bookText = await extractTextWithLimit(bookFile, 300000, (p) => {
                 setProcessing((prev) => ({
                     ...prev,
                     progress: 5 + Math.round(p.percentage * 0.2),
@@ -65,7 +65,7 @@ export function Generator() {
                 message: 'Extrayendo texto de la justificación curricular...',
             });
 
-            const justText = await extractTextWithLimit(justPdf, 200000, (p) => {
+            const justText = await extractTextWithLimit(justFile, 200000, (p) => {
                 setProcessing((prev) => ({
                     ...prev,
                     progress: 30 + Math.round(p.percentage * 0.1),
@@ -142,20 +142,20 @@ export function Generator() {
                     </div>
                 </div>
 
-                {/* Subida de PDFs */}
+                {/* Subida de Archivos */}
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
-                    <PdfUploader
+                    <DocumentUploader
                         label="Libro de texto"
                         description="El libro que usas para dar la asignatura"
-                        file={bookPdf}
-                        onFileChange={setBookPdf}
+                        file={bookFile}
+                        onFileChange={setBookFile}
                         icon="📚"
                     />
-                    <PdfUploader
+                    <DocumentUploader
                         label="Justificación curricular"
                         description="Documento del Ministerio de Educación"
-                        file={justPdf}
-                        onFileChange={setJustPdf}
+                        file={justFile}
+                        onFileChange={setJustFile}
                         icon="🏛️"
                     />
                 </div>
