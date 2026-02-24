@@ -13,17 +13,15 @@ export default function App() {
       <header className="bg-gradient-to-r from-sacramento-800 via-sacramento-700 to-sacramento-800 text-white shadow-xl">
         <div className="max-w-5xl mx-auto px-6 py-5">
           <div className="flex items-center gap-5">
-            <img
-              src="/logo-madre-sacramento.png"
-              alt="Colegio Madre Sacramento"
-              className="w-16 h-16 rounded-xl object-contain bg-white p-1.5 shadow-lg"
-            />
+            <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center text-2xl">
+              📋
+            </div>
             <div className="flex-1">
               <h1 className="text-xl font-bold tracking-tight">
                 Generador de Planificaciones
               </h1>
               <p className="text-sacramento-300 text-sm mt-0.5">
-                Colegio Madre Sacramento · LOMLOE · Comunitat Valenciana
+                LOMLOE - España
               </p>
             </div>
           </div>
@@ -61,9 +59,6 @@ export default function App() {
       <footer className="border-t border-sacramento-100 bg-white/50 backdrop-blur-sm">
         <div className="max-w-5xl mx-auto px-6 py-4 text-center">
           <p className="text-xs text-sacramento-400">
-            Colegio Madre Sacramento · Valencia · Curso 2025-2026
-          </p>
-          <p className="text-xs text-sacramento-300 mt-1">
             Planificaciones generadas según la normativa LOMLOE
           </p>
         </div>

@@ -189,12 +189,18 @@ export function Generator() {
                                 className="w-full px-3 py-2.5 rounded-xl border border-sacramento-200 focus:border-gold-500 outline-none transition-all text-sm bg-white"
                             >
                                 <option value="">Seleccionar</option>
-                                <option value="1º">1º Primaria</option>
-                                <option value="2º">2º Primaria</option>
-                                <option value="3º">3º Primaria</option>
-                                <option value="4º">4º Primaria</option>
-                                <option value="5º">5º Primaria</option>
-                                <option value="6º">6º Primaria</option>
+                                <option value="1º Primaria">1º Primaria</option>
+                                <option value="2º Primaria">2º Primaria</option>
+                                <option value="3º Primaria">3º Primaria</option>
+                                <option value="4º Primaria">4º Primaria</option>
+                                <option value="5º Primaria">5º Primaria</option>
+                                <option value="6º Primaria">6º Primaria</option>
+                                <option value="1º ESO">1º ESO</option>
+                                <option value="2º ESO">2º ESO</option>
+                                <option value="3º ESO">3º ESO</option>
+                                <option value="4º ESO">4º ESO</option>
+                                <option value="1º BACH">1º BACH</option>
+                                <option value="2º BACH">2º BACH</option>
                             </select>
                         </div>
                         <div>

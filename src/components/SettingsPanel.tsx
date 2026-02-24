@@ -49,22 +49,8 @@ export function SettingsPanel() {
                     </div>
                     <div>
                         <h2 className="text-xl font-bold text-sacramento-800">Configuración</h2>
-                        <p className="text-sm text-sacramento-500">Datos del maestro y API de IA</p>
+                        <p className="text-sm text-sacramento-500">Configuración de la API de IA</p>
                     </div>
-                </div>
-
-                {/* Nombre del maestro */}
-                <div className="mb-6">
-                    <label className="block text-sm font-semibold text-sacramento-700 mb-2">
-                        👤 Nombre del maestro/a
-                    </label>
-                    <input
-                        type="text"
-                        value={settings.teacherName}
-                        onChange={(e) => updateField('teacherName', e.target.value)}
-                        placeholder="Ej: María García López"
-                        className="w-full px-4 py-3 rounded-xl border border-sacramento-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-200 outline-none transition-all text-sm bg-white"
-                    />
                 </div>
 
                 {/* Proveedor de IA */}
@@ -85,12 +71,12 @@ export function SettingsPanel() {
                                 {provider === 'gemini' ? (
                                     <>
                                         <span className="text-2xl block mb-1">✨</span>
-                                        Google Gemini
+                                        Google / Gemini
                                     </>
                                 ) : (
                                     <>
                                         <span className="text-2xl block mb-1">🧠</span>
-                                        OpenAI
+                                        OpenAI / ChatGPT
                                     </>
                                 )}
                             </button>
