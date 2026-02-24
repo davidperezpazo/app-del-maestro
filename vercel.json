@@ -5,11 +5,5 @@
     "trailingSlash": false,
     "buildCommand": "npm run build",
     "installCommand": "npm install",
-    "devCommand": "npm run dev",
-    "crons": [],
-    "functions": {
-        "api/**/*.ts": {
-            "runtime": "nodejs22.x"
-        }
-    }
+    "devCommand": "npm run dev"
 }
