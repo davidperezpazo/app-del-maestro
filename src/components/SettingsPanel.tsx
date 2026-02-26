@@ -83,9 +83,16 @@ export function SettingsPanel() {
                         ))}
                     </div>
                     <p className="text-xs text-sacramento-400 mt-2">
-                        {settings.aiProvider === 'gemini'
-                            ? 'Obtén tu API Key en https://aistudio.google.com/api-keys'
-                            : 'Obtén tu API Key en platform.openai.com'}
+                        Obtén tu API Key en{' '}
+                        {settings.aiProvider === 'gemini' ? (
+                            <a href="https://aistudio.google.com/api-keys" target="_blank" rel="noopener noreferrer" className="text-gold-600 hover:text-gold-700 underline font-medium">
+                                aistudio.google.com/api-keys
+                            </a>
+                        ) : (
+                            <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className="text-gold-600 hover:text-gold-700 underline font-medium">
+                                platform.openai.com/api-keys
+                            </a>
+                        )}
                     </p>
                 </div>
 
