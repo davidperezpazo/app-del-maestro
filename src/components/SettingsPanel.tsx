@@ -84,7 +84,7 @@ export function SettingsPanel() {
                     </div>
                     <p className="text-xs text-sacramento-400 mt-2">
                         {settings.aiProvider === 'gemini'
-                            ? 'Obtén tu API Key en ai.google.dev'
+                            ? 'Obtén tu API Key en https://aistudio.google.com/api-keys'
                             : 'Obtén tu API Key en platform.openai.com'}
                     </p>
                 </div>
